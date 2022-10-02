@@ -808,7 +808,7 @@ var wast = 1;
                 var l = b[s];
                 o.push(e + l.fen)
             }
-            var k = "/api/get_cached_moves";
+            var k = "https://chesscompass.garbochess.com/api/get_cached_moves";
             fetch(k, {
                 method: "post",
                 body: JSON.stringify(o)
@@ -893,7 +893,7 @@ var wast = 1;
                     pvs: r
                 }
                   , b = JSON.stringify([[i, JSON.stringify(s), n, 1]]);
-                fetch("/api/post_cached_moves", {
+                fetch("https://chesscompass.garbochess.com/api/post_cached_moves", {
                     body: Q()(P.signer.sign(b), 255),
                     method: "post"
                 }),
@@ -3192,7 +3192,7 @@ var wast = 1;
                         if (!0 !== P.state.gameData.startsWith("https://www.chess.com"))
                             P.HandleGameData(P.state.gameData);
                         else {
-                            var p = "/api/get_chess_com_game?url=" + P.state.gameData;
+                            var p = "https://chesscompass.garbochess.com/api/get_chess_com_game?url=" + P.state.gameData;
                             fetch(p).then((function(p) {
                                 return p.json()
                             }
@@ -3205,7 +3205,7 @@ var wast = 1;
                             ))
                         }
                     else {
-                        var e = "/api/get_lichess_game?url=" + P.state.gameData;
+                        var e = "https://chesscompass.garbochess.com/api/get_lichess_game?url=" + P.state.gameData;
                         fetch(e).then((function(p) {
                             return p.json()
                         }
@@ -3246,7 +3246,7 @@ var wast = 1;
                 });
                 !1 === n && (n = e.load(p.trim())),
                 !1 === n && (n = e.load_pgn(P.CleanPgn(p))),
-                !0 === n ? P.GetGameId(e) : fetch("/api/get_pgn_from_game_data", {
+                !0 === n ? P.GetGameId(e) : fetch("https://chesscompass.garbochess.com/api/get_pgn_from_game_data", {
                     method: "post",
                     body: JSON.stringify({
                         gameData: p
@@ -3276,7 +3276,7 @@ var wast = 1;
             ,
             P.GetGameId = function(p) { // wast = 1; 
                 var e = p.pgn();
-                fetch("/api/get_game_id", {
+                fetch("https://chesscompass.garbochess.com/api/get_game_id", {
                     method: "post",
                     body: JSON.stringify({
                         gameData: e
@@ -5937,7 +5937,7 @@ var wast = 1;
             key: "GetOpenings",
             value: function(p) {
                 var e = this
-                  , n = "/api/get_opening?fen=" + p.fen;
+                  , n = "https://chesscompass.garbochess.com/api/get_opening?fen=" + p.fen;
                 this.setState({
                     openings: [],
                     openingsPosition: null
@@ -8195,7 +8195,7 @@ var wast = 1;
                     this.analysisScheduler.SetSelectedPosition(e.currentPosition),
                     this.setState(e)
                 } else
-                    fetch("/api/get_game_data", {
+                    fetch("https://chesscompass.garbochess.com/api/get_game_data", {
                         method: "post",
                         body: JSON.stringify({
                             gameHash: this.props.match.params.gameHash
