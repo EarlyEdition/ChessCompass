@@ -1,6 +1,7 @@
 # chesscompass
 Chess Compass is a chess GUI which can solve analyzing your chess games . Helps you calculate the next best move, explore openings, all by using chess engine.
 
+#### NOTE: this is a port of http://chesscompass.com for javascript
 ![preview](https://raw.githubusercontent.com/ChessCompass/images/main/preview.webp)
 
 ## Visual Indicators
